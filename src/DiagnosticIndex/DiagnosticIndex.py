@@ -1308,7 +1308,8 @@ class DiagnosticIndexLogic(ScriptedLoadableModuleLogic):
         #                       - randomsample.vtk
 
         #     Creation of the command line
-        vtkBasicSamplingExample = "/Users/lpascal/Applications/Statismo/statismo-build-static/Statismo-build/bin/vtkBasicSamplingExample"
+#        vtkBasicSamplingExample = "/Users/lpascal/Applications/Statismo/statismo-build-static/Statismo-build/bin/vtkBasicSamplingExample"
+        vtkBasicSamplingExample = "/Users/lpascal/Documents/DIAGNOSTICINDEX/Code/DiagnosticIndexExtension-build/statismo-build/Statismo-build/bin/vtkBasicSamplingExample"
         arguments = list()
         h5path = slicer.app.temporaryPath + "/G" + str(key) + ".h5"
         modelname = h5path
@@ -1515,6 +1516,7 @@ class DiagnosticIndexLogic(ScriptedLoadableModuleLogic):
                 ShapeOALoad = tableShapeOAVectorLoads.GetValue(row, 0).ToDouble()
                 sum = sum + math.pow(ShapeOALoad, 2)
             OAIndexList.append(math.sqrt(sum)/tableShapeOAVectorLoads.GetNumberOfRows())
+            print "Group " + str(key) + " Number of shape loads: " + str(tableShapeOAVectorLoads.GetNumberOfRows() - 5)
         # print OAIndexList
         resultGroup = OAIndexList.index(min(OAIndexList)) + 1
         # print "RESULT: " + str(resultGroup)
